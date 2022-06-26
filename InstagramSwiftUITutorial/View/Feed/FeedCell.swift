@@ -22,16 +22,17 @@ struct FeedCell: View {
                 Text("joker")
                     .font(.system(size: 14, weight: .semibold))
             }
+            .padding([.leading, .bottom], 8)
             
             // post image
             Image("batman")
                 .resizable()
                 .scaledToFill()
-                .frame(maxWidth: 340, maxHeight: 440)
+                .frame(maxWidth: UIScreen.main.bounds.size.width, maxHeight: 440)
                 .clipped()
             
             // action buttons
-            HStack(spacing: 8) {
+            HStack(spacing: 16) {
                 Button {
                     
                 } label: {
@@ -64,22 +65,33 @@ struct FeedCell: View {
                         .font(.system(size: 20))
                         .padding(4)
                 }
-            }.foregroundColor(.black)
+            }
+            .padding(.leading, 4)
+            .foregroundColor(.black)
             
             // caption
+            Text("8 likes")
+                .font(.system(size: 14, weight: .semibold))
+                .padding(.leading, 8)
+                .padding(.bottom, 2)
+            
             HStack {
                 Text("batman")
                     .font(.system(size: 14, weight: .semibold)) +
                 Text(" All men have limits. They learn what they are and learn not to exceed them. I ignore mine.")
                     .font(.system(size: 15))
             }
+            .padding(.horizontal, 8)
             
             Text("2d")
                 .font(.system(size: 14))
                 .foregroundColor(.gray)
-                .padding(.top)
-        }    }
+                .padding(.leading, 8)
+                .padding(.top, -2)
+        }
+    }
 }
+
 
 struct FeedCell_Previews: PreviewProvider {
     static var previews: some View {
